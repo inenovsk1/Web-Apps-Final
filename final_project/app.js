@@ -1,9 +1,10 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const lessMiddleware = require('less-middleware');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -20,6 +21,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(lessMiddleware(path.join(__dirname, 'public')));  // use less css preprocessor
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
