@@ -54,7 +54,7 @@ block content
         label(for="state") State: 
         select(name="state")
           each state in states
-            option(value='#{state}') #{state}
+            option(value=state) #{state}
       span.inputData
         label(for="zip") Zip: 
         input(type="text", name='zip')

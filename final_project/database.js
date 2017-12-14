@@ -3,8 +3,8 @@ var ObjectID = require('mongodb').ObjectID;
 
 // Keep this URL string, don't forget you need to be running mongodb locally!
 const url = 'mongodb://localhost:27017';
-const db;
 const dbName = 'final_projectDB';
+var db;
 
 // When this file is required, the connect method will be invoked.  
 // Unless a web request comes in immediately, db will be set by the 
@@ -12,25 +12,27 @@ const dbName = 'final_projectDB';
 MongoClient.connect(url, function (err, client) {
     console.log("Connected correctly to mongo server!");
     db = client.db(dbName);
-    bootstrapDB();
 });
 
 
 
-function bootstrapDB() {
-    let collections = db.getCollectionNames();
-    if(collections.length == 0) {
-        // explicitly create collections
-        db.createCollection('Contacts');
-    }
-}
-
-
 exports.addMember = function (member) {
-    let collection = db.getCollection('Contacts');
+    let collection = db.collection('Contacts');
 
-    collections.insertOne({}, (err, result) => {
-        
+    collection.insertOne({
+        title: member.title,
+        firstName: member.firstName,
+        lastName: member.lastName,
+        street: member.street,
+        city: member.city,
+        state: member.state,
+        zip: member.zip,
+        phone: member.phone,
+        email: member.email}, (err, result) => {
+        if(err) {
+            console.log(err);
+            return;
+        }
     });
 }
 
