@@ -1,5 +1,69 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  -
+    var states = ["AK","AL","AR","AZ","CA","CO","CT","DC","DE",
+                  "FL","GA","GU","HI","IA","ID", "IL","IN","KS",
+                  "KY","LA","MA","MD","ME","MH","MI","MN","MO","MS",
+                  "MT","NC","ND","NE","NH","NJ","NM","NV","NY", "OH",
+                  "OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT",
+                  "VA","VI","VT","WA","WI","WV","WY"]
+
+  .registerMember
+    h1 Register a new member
+    form(action="/registerUser", method='post')
+      span.inputData
+        label(for="title") Title: 
+        input(type="radio", name="title", value="Mr.", checked)
+        label Mr.
+        input(type="radio", name="title", value="Mrs.")
+        label Mrs.
+        input(type="radio", name="title", value="Ms.")
+        label Ms.
+        input(type="radio", name="title", value="Dr.")
+        label Dr.
+      
+      br
+      br
+      span.inputData
+        label(for="firstName") First Name: 
+        input(type="text", name='firstName', placeholder='John')
+      span.inputData
+        label(for="lastName") Last Name: 
+        input(type="text", name='lastName', placeholder='Doe')
+      
+      br
+      br
+      span.inputData
+        label(for="steet") Street: 
+        input(type="text", name='street')
+      span.inputData
+        label(for="City") City: 
+        input(type="text", name='city')
+
+      br
+      br
+      span.inputData
+        label(for="state") State: 
+        select(name="state")
+          each state in states
+            option(value='#{state}') #{state}
+      span.inputData
+        label(for="zip") Zip: 
+        input(type="text", name='zip')
+
+      br
+      br
+      span.inputData
+        label(for="phone") Phone: 
+        input(type="text", name='phone')
+
+      br
+      br
+      span.inputData
+        label(for="email") Email: 
+        input(type="text", name='email')
+      
+      br
+      br
+      input.menuButton#submitUser(type="submit" value="Register!")

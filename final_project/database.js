@@ -2,19 +2,37 @@ var MongoClient = require('mongodb').MongoClient
 var ObjectID = require('mongodb').ObjectID;
 
 // Keep this URL string, don't forget you need to be running mongodb locally!
-var url = 'mongodb://localhost:27017/cmps364_lab';
-var db;
+const url = 'mongodb://localhost:27017';
+const db;
+const dbName = 'final_projectDB';
 
 // When this file is required, the connect method will be invoked.  
 // Unless a web request comes in immediately, db will be set by the 
 // time any of your functions below are called.
-MongoClient.connect(url, function (err, _db) {
+MongoClient.connect(url, function (err, client) {
     console.log("Connected correctly to mongo server!");
-    db = _db;
-
-    // Use the db object in the rest of your functions....
-
+    db = client.db(dbName);
+    bootstrapDB();
 });
+
+
+
+function bootstrapDB() {
+    let collections = db.getCollectionNames();
+    if(collections.length == 0) {
+        // explicitly create collections
+        db.createCollection('Contacts');
+    }
+}
+
+
+exports.addMember = function (member) {
+    let collection = db.getCollection('Contacts');
+
+    collections.insertOne({}, (err, result) => {
+        
+    });
+}
 
 
 

@@ -1,6 +1,12 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  .errorBox
+    h1 Oops!!
+    p.error.
+      Seems like you have hit a wrong page.. Please go back to #[a.link(href='/index') Home]
+      and start from the beginning! 
+
+  //h1= message
+  //h2= error.status
+  //pre #{error.stack}

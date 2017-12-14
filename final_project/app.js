@@ -25,6 +25,7 @@ app.use(lessMiddleware(path.join(__dirname, 'public')));  // use less css prepro
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/index', index);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
@@ -42,7 +43,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', {title: 'Oops..'});
 });
 
 module.exports = app;
