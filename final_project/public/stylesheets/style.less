@@ -82,3 +82,39 @@ body {
 #submitUser {
     font-size: 1.6em;
 }
+
+#emptyInput {
+    display: none;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: red;
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+#invalidInput {
+    width: 30%;
+    height: 40px;
+    padding: 5px;
+    font-size: 1.5em;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: red;
+    animation: slideInFromTop;
+    animation-duration: 2s;
+}

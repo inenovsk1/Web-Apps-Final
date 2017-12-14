@@ -1,5 +1,9 @@
 extends layout
 
+block scripts
+  script(src='javascript/jquery.js')
+  script(src="javascript/invalidInput.js")
+
 block content
   -
     var states = ["AK","AL","AR","AZ","CA","CO","CT","DC","DE",
@@ -8,6 +12,9 @@ block content
                   "MT","NC","ND","NE","NH","NJ","NM","NV","NY", "OH",
                   "OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT",
                   "VA","VI","VT","WA","WI","WV","WY"]
+
+  p#emptyInput.
+    You have to fill out the empty fields before continuing! #[span(style=) *]
 
   .registerMember
     h1 Register a new member
