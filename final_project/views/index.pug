@@ -1,8 +1,8 @@
 extends layout
 
 block scripts
-  script(src='javascript/jquery.js')
-  script(src="javascript/invalidInput.js")
+  script(src='javascripts/jquery.js')
+  script(src="javascripts/invalidInput.js")
 
 block content
   -
@@ -14,7 +14,7 @@ block content
                   "VA","VI","VT","WA","WI","WV","WY"]
 
   p#emptyInput.
-    You have to fill out the empty fields before continuing! #[span(style=) *]
+    You have to fill out the empty fields before continuing! *
 
   .registerMember
     h1 Register a new member
