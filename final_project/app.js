@@ -1,3 +1,4 @@
+// get required packages
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -6,8 +7,10 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const lessMiddleware = require('less-middleware');
 
+// routes
 var index = require('./routes/index');
 var contacts = require('./routes/contacts');
+var mailer = require('./routes/mailer');
 
 var app = express();
 
@@ -15,6 +18,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// middleware
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -24,9 +28,11 @@ app.use(cookieParser());
 app.use(lessMiddleware(path.join(__dirname, 'public')));  // use less css preprocessor
 app.use(express.static(path.join(__dirname, 'public')));
 
+// attach routing to each URL
 app.use('/', index);
 app.use('/index', index);
 app.use('/contacts', contacts);
+app.use('/mailer', mailer);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

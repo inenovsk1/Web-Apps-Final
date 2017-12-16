@@ -7,7 +7,7 @@
 @font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
 @navFont: 2.5em "Times New Roman", Helvetica, Arial, sans-serif;
 @menuHeight: 80px;
-@buttonWidth: 20%;
+@buttonWidth: 25%;
 
 
 body {
@@ -15,10 +15,37 @@ body {
   background-color: @backgroundColor;
 }
 
+.message-page {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    font: @font;
+    font-size: 2em;
+    padding: 3em;
+    line-height: 1.5em;
+    font-style: italic;
+}
+
+blockquote:before {
+    display: block;
+    font-size: 500%;
+    content: open-quote;
+    height: 1px;
+    margin-left: -0.55em;
+    position:relative;
+    top:-20px;
+}
+
 .head {
     text-align: center;
     font-family: "Brush Script MT";
     font-size: 2.6em;
+}
+
+.signature {
+    font-family: "Brush Script MT";
+    text-align: right;
+    font-size: 2em;
 }
 
 .link {

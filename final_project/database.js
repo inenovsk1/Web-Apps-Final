@@ -1,4 +1,4 @@
-var MongoClient = require('mongodb').MongoClient
+var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 
 // Keep this URL string, don't forget you need to be running mongodb locally!
