@@ -7,10 +7,12 @@ router.get('/', function(req, res, next) {
   res.render('mailer', { title: 'Register' });
 });
 
+router.get('/asd', function(req, res) {
+    res.send("opa");
+})
+
 router.post('/registerUser', function(req, res, next) {
     //insert into db
-    console.log(req);
-
     let newCustomer = {};
     newCustomer.title = req.body.title;
     newCustomer.firstName = req.body.firstName;
@@ -22,9 +24,7 @@ router.post('/registerUser', function(req, res, next) {
     newCustomer.phone = req.body.phone;
     newCustomer.email = req.body.email;
 
-    console.log("Before inputting to database..");
     database.addMember(newCustomer);
-    console.log("After database..");
 
     //render
     res.render('inserted', {customer: newCustomer});

@@ -1,7 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 
-// Keep this URL string, don't forget you need to be running mongodb locally!
 const url = 'mongodb://localhost:27017';
 const dbName = 'final_projectDB';
 var db;
@@ -10,6 +9,11 @@ var db;
 // Unless a web request comes in immediately, db will be set by the 
 // time any of your functions below are called.
 MongoClient.connect(url, function (err, client) {
+    if(err) {
+        console.log("Error connecting to db..");
+        console.log(err);
+    }
+
     console.log("Connected correctly to mongo server!");
     db = client.db(dbName);
 });
