@@ -6,8 +6,7 @@ $(document).ready(function() {
 });
 
 function invalidInputHandler() {
-    $('#submitUser').on('click', function(e) {
-        console.log("Something is happening, but what?!?!");
+    $('.hidden').on('click', function(e) {
         $('input').each(function() {
             var input = $(this);
             if (input.val() == "") {

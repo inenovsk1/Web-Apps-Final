@@ -23,6 +23,7 @@ router.post('/registerUser', function(req, res, next) {
     newCustomer.zip = req.body.zip;
     newCustomer.phone = req.body.phone;
     newCustomer.email = req.body.email;
+    newCustomer.how = req.body.how;
 
     database.addMember(newCustomer);
 

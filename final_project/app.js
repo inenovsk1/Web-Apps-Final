@@ -5,12 +5,12 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const lessMiddleware = require('less-middleware');
 
 // routes
 var index = require('./routes/index');
 var contacts = require('./routes/contacts');
 var mailer = require('./routes/mailer');
+var about = require('./routes/about');
 
 var app = express();
 
@@ -25,7 +25,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(lessMiddleware(path.join(__dirname, 'public')));  // use less css preprocessor
 app.use(express.static(path.join(__dirname, 'public')));
 
 // attach routing to each URL
@@ -33,6 +32,7 @@ app.use('/', index);
 app.use('/index', index);
 app.use('/contacts', contacts);
 app.use('/mailer', mailer);
+app.use('/about', about);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

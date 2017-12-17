@@ -23,6 +23,8 @@ MongoClient.connect(url, function (err, client) {
 exports.addMember = function (member) {
     let collection = db.collection('Contacts');
 
+    let how = member.how ? member.how : "None";
+
     collection.insertOne({
         title: member.title,
         firstName: member.firstName,
@@ -32,13 +34,97 @@ exports.addMember = function (member) {
         state: member.state,
         zip: member.zip,
         phone: member.phone,
-        email: member.email}, (err, result) => {
+        email: member.email,
+        how: how}, (err, result) => {
         if(err) {
             console.log(err);
             return;
         }
     });
 }
+
+
+exports.getContacts = function(callback) {
+    let collection = db.collection('Contacts');
+
+    collection.find().toArray((err, result) => {
+        if(err) {
+            console.log(err);
+            return;
+        }
+
+        callback(result);
+    });
+}
+
+
+// fix this later
+exports.upsertContact = function (product, callback) {
+
+    if(product._id === undefined) {
+        //insert a product
+        let collection = db.collection('Products');
+        collection.insertOne( {name : product.name, price : product.price},
+            function(err, results) {
+                if(err) {
+                    console.log(err);
+                    return;
+                }
+                callback(err, results);
+            }
+        );
+    }
+    else {
+        //update a product
+        let collection = db.collection('Products');
+        collection.updateOne({_id : product._id}, {$set : {name : product.name,
+                                                           price : product.price}},
+            function(err, results) {
+                if(err) {
+                    console.log(err);
+                    return;
+                }
+                callback(err, results);
+            }
+        );
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

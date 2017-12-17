@@ -1,0 +1,32 @@
+extends layout
+
+block scripts
+  script(src="javascripts/contactsSAP.js")
+
+block content
+  .jumbotron
+    table.table.table-striped
+      thead.thead-dark
+        th Title
+        th First Name
+        th Last Name
+        th Street
+        th City
+        th State
+        th Zip
+        th Phone
+        th Email
+        th How to contact?
+      tbody
+        each contact in contacts
+          tr
+            td #{contact.title}
+            td #{contact.firstName}
+            td #{contact.lastName}
+            td #{contact.street}
+            td #{contact.city}
+            td #{contact.state}
+            td #{contact.zip}
+            td #{contact.phone}
+            td #{contact.email}
+            td #{contact.how}
