@@ -91,7 +91,6 @@ $(document).ready(function() {
             }
 
             createUpdateModal.modal("hide");
-            clearModalForm();
          }).bind(this));
 
     });
