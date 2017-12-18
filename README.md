@@ -4,7 +4,7 @@ Final project for CMPS 369 (Web Application Development)
 Database
 ---------
 
-Use the options --directoryperdb and --dbpath arg when starting MongoDB
+In order to run the application one needs to have a MongoDB server installed on one's machine!
 
 Usage
 ------
@@ -25,7 +25,12 @@ cd final_project
 npm install
 ```
 
-4. Run the application:
+4. Start the database in a separate terminal
+```
+mongod [options]
+```
+
+5. Run the application:
 ```
 npm start
 ```

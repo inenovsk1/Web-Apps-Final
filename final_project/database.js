@@ -59,35 +59,67 @@ exports.getContacts = function(callback) {
 
 
 // fix this later
-exports.upsertContact = function (product, callback) {
+exports.upsertMember = function (member, callback) {
 
-    if(product._id === undefined) {
+    if(member._id === undefined) {
         //insert a product
-        let collection = db.collection('Products');
-        collection.insertOne( {name : product.name, price : product.price},
+        let collection = db.collection('Contacts');
+        collection.insertOne( {
+            title: member.title,
+            firstName: member.firstName,
+            lastName: member.lastName,
+            street: member.street,
+            city: member.city,
+            state: member.state,
+            zip: member.zip,
+            phone: member.phone,
+            email: member.email,
+            how: member.how},
             function(err, results) {
                 if(err) {
                     console.log(err);
                     return;
                 }
-                callback(err, results);
+
+                callback(results);
             }
         );
     }
     else {
         //update a product
-        let collection = db.collection('Products');
-        collection.updateOne({_id : product._id}, {$set : {name : product.name,
-                                                           price : product.price}},
+        let collection = db.collection('Contacts');
+        collection.updateOne({_id : member._id}, {$set : {title: member.title,
+                                                          firstName: member.firstName,
+                                                          lastName: member.lastName,
+                                                          street: member.street,
+                                                          city: member.city,
+                                                          state: member.state,
+                                                          zip: member.zip,
+                                                          phone: member.phone,
+                                                          email: member.email,
+                                                          how: member.how}},
             function(err, results) {
                 if(err) {
                     console.log(err);
                     return;
                 }
-                callback(err, results);
+                callback(results);
             }
         );
     }
+}
+
+
+exports.deleteMember = function(member, callback) {
+    let collection = db.collection('Contacts');
+
+    collection.deleteOne({_id : member.id}, function(err, results) {
+        if(err) {
+            console.log(err);
+            return;
+        }
+        callback(results);
+    });
 }
 
 
