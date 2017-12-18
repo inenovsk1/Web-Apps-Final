@@ -25,10 +25,10 @@ router.post('/registerUser', function(req, res, next) {
     newCustomer.email = req.body.email;
     newCustomer.how = req.body.how;
 
-    database.addMember(newCustomer);
-
-    //render
-    res.render('inserted', {customer: newCustomer});
+    database.addMember(newCustomer, (results) => {
+        //render inserted page
+        res.render('inserted', {customer: newCustomer});
+    });
 });
 
 module.exports = router;

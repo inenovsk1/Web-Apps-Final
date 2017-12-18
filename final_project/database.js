@@ -24,8 +24,8 @@ exports.addMember = function (member, callback) {
     let collection = db.collection('Contacts');
 
     member.how = member.how ? member.how : "None";
-    delete member.id
-    delete member._id
+    //delete member.id
+    //delete member._id
     collection.insertOne(member, (err, result) => {
         if(err) {
             console.log(err);

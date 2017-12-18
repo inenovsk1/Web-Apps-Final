@@ -65,12 +65,10 @@ router.post('/create', function(req, res, next) {
 
 router.post('/delete', function(req, res, next) {
     console.log("Deleting " + req.body.id);
-    database.deleteMember({
-        id: req.body.id
-    }, function(results){
-        console.log(results)
-        res.send(results)
-    })
+    database.deleteMember({id: req.body.id}, 
+        function(results) {
+            res.send(results);
+        });
 });
 
 
