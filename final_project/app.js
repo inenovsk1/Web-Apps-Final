@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 // routes
 var index = require('./routes/index');
 var contacts = require('./routes/contacts');
-var mailer = require('./routes/mailer');
+var mailer = require('./routes/mailer');    
 var about = require('./routes/about');
 
 var app = express();

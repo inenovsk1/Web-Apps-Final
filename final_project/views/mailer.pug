@@ -1,9 +1,5 @@
 extends layout
 
-block scripts
-  script(src='javascripts/jquery.js')
-  script(src="javascripts/invalidInput.js")
-
 block content
   .jumbotron
     -
@@ -39,18 +35,18 @@ block content
       .row
         .col
           label(for="firstName") First Name: 
-          input.form-control(type="text", name='firstName', placeholder='John')
+          input.form-control(type="text", name='firstName', placeholder='John' required)
         .col
           label(for="lastName") Last Name: 
-          input.form-control(type="text", name='lastName', placeholder='Doe')
+          input.form-control(type="text", name='lastName', placeholder='Doe' required)
       
       .row
         .col
           label.col-sm-2.col-form-label(for="steet") Street: 
-          input.form-control(type="text", name='street')
+          input.form-control(type="text", name='street' required)
         .col
           label.col-sm-2.col-form-label(for="City") City: 
-          input.form-control(type="text", name='city')
+          input.form-control(type="text", name='city' required)
 
       .row
         .col
@@ -60,14 +56,14 @@ block content
               option(value=state) #{state}
         .col
           label.col-sm-2.col-form-label(for="zip") Zip: 
-          input.form-control(type="text", name='zip')
+          input.form-control(type="text", name='zip' required)
       
       
       label.col-sm-2.col-form-label(for="phone") Phone: 
-      input.form-control(type="text", name='phone')
+      input.form-control(type="text", name='phone' required)
 
       label.col-sm-2.col-form-label(for="email") Email: 
-      input.form-control(type="text", name='email')
+      input.form-control(type="text", name='email' required)
 
       .form-check.form-check-inline
         label.col-form-label(for="how") How may we contact you?
@@ -76,15 +72,15 @@ block content
           span.custom-control-indicator
           span.custom-control-description Phone
         label.custom-control.custom-checkbox
-          input.custom-control-input(type="checkbox", name="how", value="Mail", checked)
+          input.custom-control-input(type="checkbox", name="how", value="Mail",)
           span.custom-control-indicator
           span.custom-control-description Mail
         label.custom-control.custom-checkbox
-          input.custom-control-input(type="checkbox", name="how", value="Email", checked)
+          input.custom-control-input(type="checkbox", name="how", value="Email",)
           span.custom-control-indicator
           span.custom-control-description Email
         label.custom-control.custom-checkbox
-          input.custom-control-input(type="checkbox", name="how", value="Any", checked)
+          input.custom-control-input(type="checkbox", name="how", value="Any",)
           span.custom-control-indicator
           span.custom-control-description Any
 
