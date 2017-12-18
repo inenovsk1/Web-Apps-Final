@@ -7,6 +7,7 @@ block content
       Seems like you have hit a wrong page.. Please go back to #[a.link(href='/index') Home]
       and start from the beginning! 
 
-    h1= message
-    h2= error.status
-    pre #{error.stack}
+    // Keep these three lines commented out when in production. Don't wanna scare the user..
+    //h1= message
+    //h2= error.status
+    //pre #{error.stack}

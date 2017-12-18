@@ -46,12 +46,12 @@ $(document).ready(function() {
         
     };
 
-    var deleteContact = function(e){
+    var deleteContact = function(e) {
         var id = $(this).attr("data-id")
         $.post("/contacts/delete", {
             id: id
         }).done((function(data) {
-            $(this).closest(".contact-row").fadeOut("fast",function(){
+            $(this).closest(".contact-row").fadeOut("fast", function(){
                 $(this).remove();
             })
          }).bind(this));
