@@ -16,15 +16,15 @@ block content
       .form-check.form-check-inline
         label.col-form-label(for="title") Title: 
         label.custom-control.custom-radio
-          input.custom-control-input(type="radio", name="title", value="Mr.", checked)
+          input.custom-control-input(type="radio", name="title", value="Mr.",)
           span.custom-control-indicator
           span.custom-control-description Mr.
         label.custom-control.custom-radio
-          input.custom-control-input(type="radio", name="title", value="Mrs.", checked)
+          input.custom-control-input(type="radio", name="title", value="Mrs.")
           span.custom-control-indicator
           span.custom-control-description Mrs.
         label.custom-control.custom-radio
-          input.custom-control-input(type="radio", name="title", value="Ms.", checked)
+          input.custom-control-input(type="radio", name="title", value="Ms.")
           span.custom-control-indicator
           span.custom-control-description Ms.
         label.custom-control.custom-radio
@@ -35,18 +35,18 @@ block content
       .row
         .col
           label(for="firstName") First Name: 
-          input.form-control(type="text", name='firstName', placeholder='John' required)
+          input.form-control(type="text", name='firstName', placeholder='John', required)
         .col
           label(for="lastName") Last Name: 
-          input.form-control(type="text", name='lastName', placeholder='Doe' required)
+          input.form-control(type="text", name='lastName', placeholder='Doe', required)
       
       .row
         .col
           label.col-sm-2.col-form-label(for="steet") Street: 
-          input.form-control(type="text", name='street' required)
+          input.form-control(type="text", name='street', required)
         .col
           label.col-sm-2.col-form-label(for="City") City: 
-          input.form-control(type="text", name='city' required)
+          input.form-control(type="text", name='city', required)
 
       .row
         .col
@@ -56,14 +56,14 @@ block content
               option(value=state) #{state}
         .col
           label.col-sm-2.col-form-label(for="zip") Zip: 
-          input.form-control(type="text", name='zip' required)
+          input.form-control(type="text", name='zip', required)
       
       
       label.col-sm-2.col-form-label(for="phone") Phone: 
-      input.form-control(type="text", name='phone' required)
+      input.form-control(type="text", name='phone', required)
 
       label.col-sm-2.col-form-label(for="email") Email: 
-      input.form-control(type="text", name='email' required)
+      input.form-control(type="text", name='email', required)
 
       .form-check.form-check-inline
         label.col-form-label(for="how") How may we contact you?
